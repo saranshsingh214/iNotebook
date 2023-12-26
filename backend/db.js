@@ -1,11 +1,9 @@
 const mongoose = require('mongoose')
 
-const mongoURI = "mongodb://localhost:27017/iNotebook"
+const mongoURI = "mongodb+srv://Saransh214:Saransh214@inotebook.nsbhyn2.mongodb.net/"
 
-const connectToMongo =()=>{
-    mongoose.connect(mongoURI,()=>{
-        console.log("Connected to MongoDB Successfully")
-    })
-}
-
-module.exports = connectToMongo
+async function connectToMongo() {
+    await mongoose.connect(mongoURI).then(()=> console.log("Connected to Mongo Successfully")).catch(err => console.log(err));
+  }
+  
+  module.exports = connectToMongo;
